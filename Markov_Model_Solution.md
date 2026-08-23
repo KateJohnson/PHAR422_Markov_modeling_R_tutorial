@@ -1,6 +1,5 @@
 # Markov Model Excel Adaptation With Solution
 
-
 ## Model Description
 
 Consider a latent disease whereby there are three possible health
@@ -61,11 +60,11 @@ library(tidyverse)
 ```
 
     ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ✔ dplyr     1.2.0     ✔ readr     2.2.0
-    ✔ forcats   1.0.1     ✔ stringr   1.6.0
-    ✔ ggplot2   4.0.2     ✔ tibble    3.3.1
-    ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-    ✔ purrr     1.2.2     
+    ✔ dplyr     1.2.0     ✔ readr     2.1.5
+    ✔ forcats   1.0.0     ✔ stringr   1.5.1
+    ✔ ggplot2   4.0.1     ✔ tibble    3.3.0
+    ✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+    ✔ purrr     1.2.0     
     ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ✖ dplyr::filter() masks stats::filter()
     ✖ dplyr::lag()    masks stats::lag()
@@ -365,7 +364,7 @@ knitr::kable(icer_table, digits = c(0, 0, 2, NA))
 
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: left;">Comparator</th>
 <th style="text-align: right;">Costs</th>
 <th style="text-align: right;">QALYs</th>
@@ -373,19 +372,19 @@ knitr::kable(icer_table, digits = c(0, 0, 2, NA))
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">Treatment (T1)</td>
 <td style="text-align: right;">28888</td>
 <td style="text-align: right;">16.34</td>
 <td style="text-align: left;">-</td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">Conventional Management (T0)</td>
 <td style="text-align: right;">18511</td>
 <td style="text-align: right;">15.58</td>
 <td style="text-align: left;">-</td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">Incremental</td>
 <td style="text-align: right;">10377</td>
 <td style="text-align: right;">0.76</td>
@@ -419,9 +418,9 @@ assumption embedded in method = “end”. The R script calculates each
 cycle’s cost and effect using the state a patient occupies at the *end*
 of that cycle. Since the Death state has a cost of $0 , a patient who
 dies during a given cycle contributes $0 to that cycle’s cost entirely.
-The Excel sheet, however, was built to reflect the assumption stated in
-the original problem: that patients who die do so *after taking the
-treatment* that year, so they still “pay” for that cycle’s treatment.
-This results in a higher cost assumption for T1, which is why Excel’s
-Total Cost for T1 ($28,977.57) is slightly higher than R’s ($28,887.88),
-and its ICER becomes higher too.
+The Excel sheet, however, was built to reflect the assumption used in
+the original Excel exercise: that patients who die do so *after taking
+the treatment* that year, so they still “pay” for that cycle’s
+treatment. This results in a higher cost assumption for T1, which is why
+Excel’s Total Cost for T1 ($28,977.57) is slightly higher than R’s
+($28,887.88), and its ICER becomes higher too.

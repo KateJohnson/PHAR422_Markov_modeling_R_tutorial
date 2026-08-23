@@ -1,4 +1,4 @@
-# PHAR422 Markov modeling in R tutorial (Fall 2024)
+# PHAR422 Markov modeling in R tutorial (Fall 2026)
 
 ## Learning Objectives
 - Construct a cohort-based Markov model in R
@@ -36,7 +36,7 @@ You only need the first paragraph of instructions for each.
 - Under the green 'code' button (top right), 'download ZIP' to download a local copy of the entire repository and its contents
 ![ ](Figures/download_zip.PNG)
 - Unzip and open the repository from your downloads folder
-- We will work on `Markov_Model_Solutions.qmd`
+- We will work on `Markov_Model.qmd`
 
 *Note: you may want to move the R project folder out of your downloads folder to a more logical place, such as where you store 
 class materials on your computer. You can do that within finder by dragging and dropping the entire folder to your preferred location.
