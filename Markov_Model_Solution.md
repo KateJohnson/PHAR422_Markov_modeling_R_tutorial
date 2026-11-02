@@ -413,14 +413,15 @@ identical? If not, why is that?
 `heemod` package documentation.)**
 
 No, the Excel gives an ICER of about $13,821/QALY, while the R script
-gives about $13,702/QALY. The difference comes entirely from a modeling
-assumption embedded in method = “end”. The R script calculates each
-cycle’s cost and effect using the state a patient occupies at the *end*
-of that cycle. Since the Death state has a cost of $0 , a patient who
-dies during a given cycle contributes $0 to that cycle’s cost entirely.
-The Excel sheet, however, was built to reflect the assumption used in
-the original Excel exercise: that patients who die do so *after taking
-the treatment* that year, so they still “pay” for that cycle’s
-treatment. This results in a higher cost assumption for T1, which is why
-Excel’s Total Cost for T1 ($28,977.57) is slightly higher than R’s
-($28,887.88), and its ICER becomes higher too.
+gives about $13,702/QALY. The difference comes from two things working
+together. First, method = “end” is a timing rule: the R script
+calculates each cycle’s cost and effect using the state a patient
+occupies at the *end* of that cycle. Second, the two models make
+different treatment cost assumptions. In R, the Death state has a cost
+of $0, so a patient who dies during a given cycle contributes $0 to that
+cycle’s cost entirely. The Excel sheet, however, was built to reflect
+the assumption used in the original Excel exercise: that patients who
+die do so *after taking the treatment* that year, so they still “pay”
+for that cycle’s treatment. This results in a higher cost assumption for
+T1, which is why Excel’s Total Cost for T1 ($28,977.57) is slightly
+higher than R’s ($28,887.88), and its ICER becomes higher too.
